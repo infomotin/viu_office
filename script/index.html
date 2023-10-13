@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+    <style>
+        .one {
+            color: #30e218b0;
+        }
+
+        .two {
+            text-decoration: dotted;
+        }
+
+        .canvas {
+            height: 240px;
+            width: 240px;
+            background-color: aquamarine;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{name}}</h1>
+    </div>
+    <div id='app2'>
+        <ol>
+            <li v-for="n in names">
+                {{n}}
+
+            </li>
+        </ol>
+        
+
+        <!-- <p>{{b}}</p> -->
+        <!-- <p>{{MyName()}}</p> -->
+        <!-- <p>{{MessageWith(M)}}</p> -->
+        <!-- <a v-bind:href="address">Url</a> -->
+        <!-- <p :class="classes[0]">Class Name Example </p> -->
+        <!-- <input type="text" name="test" :value="name"> -->
+        <!-- <h1>{{dollar}}</h1> -->
+        <!-- <button @click="Amount(1)">+</button>
+        <button @click="Amount(-1)">-</button> -->
+
+        <!-- <button @click="Me" > Click Me</button> -->
+        <!-- <div class="canvas">
+            {{log.x}},{{log.y}}
+        </div> -->
+        <!-- <p v-if="c['sex']">Easy Learning</p>
+        <p v-if="b['age']">Easy Age</p>
+        <p v-if="dollar">Easy Doller</p>
+        <button @click="ShowMethod">useMethod</button>
+        <button @click="b['age'] = !b['age']">Show/hide</button> -->
+    </div>
+    <script>
+        let app2 = new Vue({
+            el: '#app2',
+            data: {
+                a: 'Sate Of Array',
+                b: {
+                    name: 'Sumi',
+                    age: 29
+                },
+                c: {
+                    sex: 'F'
+                },
+                address: 'https://vuejs.org/',
+                names: ['one', 'two', 'three', 'four'],
+                name: 'Md Abdul Motin',
+                dollar: 100.00,
+                log: {
+                    x: 0, y: 0
+                },
+                fruits:[
+                    {name:'Mango',colour:'read',weight:300},
+                    {name:'JackFruit',colour:'green',weight:2000},
+                    {name:'Guyava',colour:'Blue',weight:250},
+                ]
+            },
+            methods: {
+                // MyName(){
+                //     return 'Md Abdul Motin';
+                // },
+                // Massage(){
+                //     return `${this.b['age']}`;
+                // },
+                // MessageWith(sex){
+                //     return `${this.b['name']} my age is ${sex}`;
+                // },
+                // Amount(p){
+                //     this.dollar+=p;
+                // },
+                // Me(event){
+                //     console.log(event);
+                // },
+                over(e) {
+                    // console.log(e);
+                    // alert('done');
+                    this.log.x = event.offsetX
+                    this.log.y = event.offsetY
+                },
+                ShowMethod(){
+                    this.c['sex'] = !this.c['sex'];
+                },
+            }
+        });
+
+
+
+    </script>
+    <script src="app.js"></script>
+</body>
+
+</html>
